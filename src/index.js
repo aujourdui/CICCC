@@ -8,7 +8,10 @@ import App from "./App";
 
 ReactDOM.render(
   <Router>
-    <App />
+    <div className="yellow-border" />
+      <div className="container">
+        <App />
+      </div>
   </Router>,
   document.getElementById("root")
 );

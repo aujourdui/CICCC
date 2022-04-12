@@ -16,7 +16,7 @@ const App = () => {
   return (
     <div className="wrapper">
 
-      <div className="siderbar">
+      <div className="sidebar">
         <ul className="nav">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
