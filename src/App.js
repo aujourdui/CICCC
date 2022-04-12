@@ -15,7 +15,6 @@ import Login from "./pages/Login";
 const App = () => {
   return (
     <div className="wrapper">
-
       <div className="sidebar">
         <ul className="nav">
           <li><Link to="/">Home</Link></li>
