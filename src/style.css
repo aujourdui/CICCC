@@ -92,3 +92,7 @@ h6 {
 .body {
   margin: 0 50px;
 }
+
+.active {
+  color: #f32827 !important;
+}
