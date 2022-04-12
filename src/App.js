@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 
 import CustomLink from "./components/CustomLink";
 import Chats from "./pages/Chats";
@@ -18,25 +18,29 @@ const NotFound = React.lazy(() => import("./pages/NotFound"));
 // {q: 'cats',src: 'caturday'}
 
 const App = () => {
-  const [user, setUser] = useState('')
-  
+  const [user, setUser] = useState(false);
+
+  const handleLogin = () => setUser(true);
+  const handleLogout = () => setUser(false);
+
   const routes = useRoutes([
     { path: "/", element: <Home /> },
-    { path: "/login", element: <Login /> },
-    { path: "/register", element: <Register /> },
-    { path: "/dashboard", element: <Dashboard /> },
-    { path: "/post/:postId", element: <PostPage /> },
-    { path: "/comments", element: <Comments /> },
-    { path: "/profile", element: <Profile /> },
-    { path: "*", element: <NotFound /> },
-    { 
-      path: "/messages", 
-      element: <Messages />, 
-      children: [
-        { path: ":id", element: <Chats /> }
-      ]
+    {
+      path: "/login",
+      element: <Login user={user} handleLogin={handleLogin} />,
     },
-  ])
+    { path: "/register", element: <Register /> },
+    { path: "/dashboard", element: <Dashboard user={user} /> },
+    { path: "/post/:postId", element: <PostPage user={user} /> },
+    { path: "/comments", element: <Comments user={user} /> },
+    { path: "/profile", element: <Profile user={user} /> },
+    { path: "*", element: <NotFound /> },
+    {
+      path: "/messages",
+      element: <Messages user={user} />,
+      children: [{ path: ":id", element: <Chats /> }],
+    },
+  ]);
   return (
     <div className="wrapper">
       <div className="sidebar">
@@ -44,15 +48,23 @@ const App = () => {
           <li>
             <CustomLink to="/">Home</CustomLink>
           </li>
-          <li>
-            <CustomLink to="/login">Login</CustomLink>
-          </li>
+          {user ? (
+            <li onClick={handleLogout}>
+              <CustomLink to="/login">Logout</CustomLink>
+            </li>
+          ) : (
+            <li>
+              <CustomLink to="/login">Login</CustomLink>
+            </li>
+          )}
           <li>
             <CustomLink to="/register">Register</CustomLink>
           </li>
-          <li>
-            <CustomLink to="/dashboard">Dashboard</CustomLink>
-          </li>
+          {user && (
+            <li>
+              <CustomLink to="/dashboard">Dashboard</CustomLink>
+            </li>
+          )}
         </ul>
         {/* <Routes>
           <Route path="/" element={<p>This is your home page</p>} />

@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Form from "../components/Form";
 
-const Login = () => {
+const Login = ({ handleLogin }) => {
   const [toDashboard, setToDashboard] = useState(false);
 
-  if(toDashboard === true){
-      return <Navigate to="/dashboard" />
+  if (toDashboard === true) {
+    handleLogin();
+    return <Navigate to="/dashboard" />;
   }
 
   return (
