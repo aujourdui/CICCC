@@ -1,10 +1,10 @@
 # TypeScript Exercise 1 – Basic Types and Annotation
 
 ### ======== Exercise 1.0 ========
- Instructions:
- • Hover over red squigglies to inspect the TS errors.
- • Hover over variables to inspect their types.
- • Fix the error on line 18 by changing the value of pi to the expected type.
+Instructions:
+- Hover over red squigglies to inspect the TS errors.
+- Hover over variables to inspect their types.
+- Fix the error on line 18 by changing the value of pi to the expected type.
 
 ```bash
 let pi = "3.14159";
@@ -15,9 +15,9 @@ console.log("[Exercise 1.0]", `${tau} is ${pi} times two.`);
 
 ### ======== Exercise 1.1 ========
 Instructions:
- • Inspect type of `pie`
- • Add an explicit type annotation to `pie`
- • Try assigning invalid types, for fun
+- Inspect type of `pie`
+- Add an explicit type annotation to `pie`
+- Try assigning invalid types, for fun
 
 ```bash
 let pie;
@@ -27,8 +27,8 @@ console.log("[Exercise 1.1]", `I like to eat ${pie}-flavored pie.`);
 ```
 
 ### ======== Exercise 1.2 ========
- Instructions:
- • Inspect the error, then fix it.
+Instructions:
+- Inspect the error, then fix it.
 
 ```bash
 let isMark: boolean;
@@ -38,8 +38,8 @@ console.log("[Exercise 1.2]", `${isMark ? "Oh, hi Mark" : "Who are you?"}`);
 
 ### ======== Exercise 1.3 ========
 Instructions:
- • Add type annotations (as explicit as possible)
- • Fix errors (if applicable)
+- Add type annotations (as explicit as possible)
+- Fix errors (if applicable)
 
 ```bash
 const integer = 6;
@@ -71,8 +71,8 @@ console.log("[Exercise 1.3]", members);
 
 ### ======== Exercise 1.4 ========
 Instructions:
- • Add type annotations (as explicit as possible)
- • Fix errors (if applicable)
+- Add type annotations (as explicit as possible)
+- Fix errors (if applicable)
 
 ```bash
 const sequence = Array.from(Array(10).keys());
@@ -84,8 +84,8 @@ console.log("Exercise 1.4", allMyArrays);
 ```
 ### ======== Exercise 1.5 ========
 Goal:
- • Add type annotations (as explicit as possible)
- • Fix errors (if applicable)
+- Add type annotations (as explicit as possible)
+- Fix errors (if applicable)
 
 We want to represent an inventoryItem as a structure where the first entry is the item name and the second is the quantity
 
