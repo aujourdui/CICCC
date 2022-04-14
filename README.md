@@ -90,16 +90,19 @@ Goal:
 We want to represent an inventoryItem as a structure where the first entry is the item name and the second is the quantity
 
 ```bash
-const inventoryItem = ["fidget wibbit", 11];
+(() => {
 
-// later we destructure it
-const [name, qty] = inventoryItem;
-
-const msg = addInventory(name, qty);
-
-console.log("[Exercise 1.5]", msg);
-
-function addInventory(name: string, quantity: number): string {
-  return `Added ${quantity} ${name}s to inventory.`;
-}
+  const inventoryItem = ["fidget wibbit", 11];
+  
+  // later we destructure it
+  const [name, qty] = inventoryItem;
+  
+  const msg = addInventory(name, qty);
+  
+  console.log("[Exercise 1.6]", msg);
+  
+  function addInventory(name: string, quantity: number): string {
+    return `Added ${quantity} ${name}s to inventory.`;
+  }
+})()
 ```
