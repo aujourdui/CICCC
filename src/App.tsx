@@ -2,12 +2,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook } from "@fortawesome/free-solid-svg-icons";
 import Customer from "./components/Customer";
 import CustomerClass from "./components/CustomerClass";
-import Employee from './components/Employee';
+import Employee from "./components/Employee";
 import EmployeeClass from "./components/EmployeeClass";
 import Counter from "./components/Counter";
-import Greetings from './components/Greetings'
+import Greetings from "./components/Greetings";
 import LoginForm from "./components/LoginForm";
 import UserList from "./components/UserList";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
@@ -29,6 +30,13 @@ function App() {
                 Read More
               </i>
             </button>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col">
+            {/* <UserList /> */}
+            <Outlet />
           </div>
         </div>
 
@@ -63,14 +71,6 @@ function App() {
             <LoginForm />
           </div>
         </div> */}
-
-        <div className="row">
-          <div className="col">
-            <UserList />
-          </div>
-        </div>
-
-
       </div>
     </div>
   );
