@@ -3,12 +3,12 @@ import axios from "axios";
 export class UserService {
   private static URL: string = `https://jsonplaceholder.typicode.com`;
 
-  public static getAllUsers() {
+  public static async getAllUsers() {
     const dataURL: string = `${this.URL}/users`;
-    return axios.get(dataURL);
+    return await axios.get(dataURL);
   }
-  public static getUser(id: any) {
+  public static async getUser(id: string) {
     const dataUserURL: string = `${this.URL}/users/${id}`;
-    return axios.get(dataUserURL);
+    return await axios.get(dataUserURL);
   }
 }
