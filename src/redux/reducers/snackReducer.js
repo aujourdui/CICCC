@@ -7,8 +7,8 @@ const initState = {
     { id: 3, food: "Calbee", quantity: 12 },
     { id: 4, food: "M&Ms", quantity: 8 },
     { id: 5, food: "Jagabee", quantity: 5 },
-    { id: 6, food: "Taquis", quantity: 2 }
-  ]
+    { id: 6, food: "Taquis", quantity: 2 },
+  ],
 };
 
 export const snackReducer = (state = initState, action) => {
