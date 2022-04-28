@@ -94,3 +94,12 @@ For this challenge, you have three components, each containing a button that inc
 
 ### D) Implementing and using Redux 
 In this coding challenge, the interviewer wants to check how you implement and use Redux. So, you might be provided with a basic React application with two components - one that will contain the buttons to increment and decrement the global state and another to display the value.
+
+### E) **Share data among components without using props and Redux
+In this coding challenge, the interview might give you a React application with multiple nested components like the following.
+
+> A ──► B ─────► C
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─────► D
+
+Suppose there is an object in component “A” and it is required in “C” and “D”.
