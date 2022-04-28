@@ -102,8 +102,7 @@ In this coding challenge, the interview might give you a React application with 
 
 A ──► B ─────► C
       │
-      └─────► D
-
+      └──────► D
 </pre>
 
 Suppose there is an object in component “A” and it is required in “C” and “D”.
