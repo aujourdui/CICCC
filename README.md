@@ -91,3 +91,6 @@ For this challenge, you have three components, each containing a button that inc
 - “ComponentA” where the button increments the value by two.
 - “ComponentB” where the button increments the value by twenty.
 - “ComponentC” where the button increments the value by two hundred.
+
+### D) Implementing and using Redux 
+In this coding challenge, the interviewer wants to check how you implement and use Redux. So, you might be provided with a basic React application with two components - one that will contain the buttons to increment and decrement the global state and another to display the value.
