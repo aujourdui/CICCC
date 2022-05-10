@@ -1,6 +1,5 @@
 const http = require("http");
 const fs = require("fs");
-const path = require("path");
 
 const server = http.createServer((req, res) => {
   const url = req.url;
@@ -24,7 +23,7 @@ const server = http.createServer((req, res) => {
     res.end();
   }
   if (url === "/read-message") {
-    fs.readFile("message.txt", "utf8", (err, data) => {
+    const data = fs.readFileSync("message.txt", "utf8", (err, data) => {
       console.log(data);
       return res.end();
     });
@@ -36,6 +35,7 @@ const server = http.createServer((req, res) => {
               </head>
               <body>
                   <h1>This is read message page</h1>
+                  <h3>${data}</h3>
                   <a href="/">Back to top</a>
               </body>
           </html>
