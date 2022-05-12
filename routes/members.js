@@ -16,9 +16,13 @@ router.get("/:id", (req, res) => {
   const paramsID = req.params.id;
 
   const found = members.some((member) => member.id === paramsID);
+  const filteredMember = members.filter((member) => member.id === paramsID);
 
   if (found) {
-    res.render(members.filter((member) => member.id === paramsID));
+    res.render("memberDetail", {
+      filteredMember,
+      pageTitle: "Member detail page",
+    });
   } else {
     res.status(400).json({ msg: `Member with id: ${paramsID}, is not found ` });
   }

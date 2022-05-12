@@ -1,0 +1,15 @@
+<%- include('partials/header.ejs') %>
+
+<h1>Filtered member</h1>
+
+<ul>
+  <li>
+    <h2><%=filteredMember[0].name%></h2>
+  </li>
+  <li>
+    <p><%=filteredMember[0].email%></p>
+  </li>
+</ul>
+<a href="/">Go to home</a>
+
+<%- include('partials/footer.ejs') %>
