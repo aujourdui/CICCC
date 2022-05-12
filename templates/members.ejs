@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') %>
+
+<h1>Members list</h1>
+<% if(members.length === 0){ %>
+<h1>No member</h1>
+<% } else { %>
+<ul>
+  <% members.forEach(function(members) { %>
+  <li>
+    <h2><a href="<%=`members/${members.id}`%>"><%=members.name%></a></h2>
+    <p><%=members.email%></p>
+  </li>
+  <% })%>
+</ul>
+<% } %>
+<a href="/">Go to home</a>
+
+<%- include('partials/footer.ejs') %>
