@@ -29,13 +29,18 @@ router.post("/create", async (req, res) => {
 
 router.get("/edit/:id", async (req, res) => {
   const result = await client.hGet("todos", req.params.id);
-  // console.log(result);
-  res.render("edit", { model: {} });
+  console.log(req.params.id);
+  res.render("edit", {
+    model: {
+      ID: req.params.id,
+      Title: result,
+    },
+  });
 });
 
-router.post("/edit", async (req, res) => {
+router.post("/edit/:id", async (req, res) => {
   await client.hSet("todos", req.params.id, req.body.Title);
-  console.log(req.params.id);
+  console.log(req.body.title);
   res.redirect("/");
 });
 
