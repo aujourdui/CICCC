@@ -38,7 +38,7 @@ router.get("/edit/:id", async (req, res) => {
 router.post("/edit/:id", async (req, res) => {
   const db = mongoConnect();
   db.collection("todos")
-    .updateOne({ _id: ObjectID("6284054c043cbf3ac0bf4a71"), Title: "Title" })
+    .updateOne({ _id: ObjectID(req.params.id), Title: req.body.Title })
     .then((result) => {
       console.log("A todo has been edited");
       res.redirect("/");
