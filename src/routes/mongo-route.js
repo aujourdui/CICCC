@@ -1,4 +1,4 @@
-const ObjectID = require("mongodb").ObjectID;
+const ObjectId = require("mongodb").ObjectId;
 const router = require("express").Router();
 const { mongoConnect } = require("../services/mongo");
 
@@ -7,6 +7,7 @@ router.get("/", async (req, res) => {
   const fetchedTodos = await db.collection("todos").find().toArray();
   console.log(fetchedTodos);
   const todos = fetchedTodos.map((item) => ({ ID: item._id, ...item }));
+  console.log(todos);
   res.render("index", { model: todos });
 });
 
@@ -28,19 +29,26 @@ router.get("/edit/:id", async (req, res) => {
   const db = mongoConnect();
   const fetchedTodo = await db
     .collection("todos")
-    .findOne({ _id: ObjectID(req.params.id) });
-  console.log(fetchedTodo);
+    .findOne({ _id: ObjectId(req.params.id) });
+  // console.log(fetchedTodo);
+  // console.log(fetchedTodo.Title);
+  // console.log(req.params.id);
   res.render("edit", {
-    model: fetchedTodo,
+    model: { ID: req.params.id, Title: fetchedTodo.Title },
+    // model: fetchedTodo,
   });
 });
 
 router.post("/edit/:id", async (req, res) => {
   const db = mongoConnect();
   db.collection("todos")
-    .updateOne({ _id: ObjectID(req.params.id), Title: req.body.Title })
+    .updateOne(
+      { _id: ObjectId(req.params.id) },
+      { $set: { Title: req.body.Title } }
+    )
     .then((result) => {
       console.log("A todo has been edited");
+      console.log(result);
       res.redirect("/");
     });
 });
@@ -48,7 +56,7 @@ router.post("/edit/:id", async (req, res) => {
 router.get("/delete/:id", (req, res) => {
   const db = mongoConnect();
   db.collection("todos")
-    .deleteOne({ _id: ObjectID(req.params.id) })
+    .deleteOne({ _id: ObjectId(req.params.id) })
     .then((result) => {
       console.log("A todo has been deleted");
       res.redirect("/");
