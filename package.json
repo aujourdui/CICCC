@@ -1,0 +1,19 @@
+{
+  "name": "auth-session-nodejs",
+  "version": "1.0.0",
+  "description": "simple auth with redis session in nodejs and express",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index",
+    "dev": "nodemon src/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
+  }
+}
