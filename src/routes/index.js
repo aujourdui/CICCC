@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const bcrypt = require("bcrypt");
 const User = require("../models/user");
 
 router.get("/", (req, res) => {
@@ -17,13 +18,18 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  const user = new User(email, password);
-  user
-    .validate()
-    .then((result) => {
-      console.log(result);
-      req.session.email = email;
-      res.end("logged in");
+  User.find(email)
+    .then((user) => {
+      if (user) {
+        if (bcrypt.compareSync(password, user.password)) {
+          req.session.email = email;
+          res.end("logged in");
+        } else {
+          res.end("Invalid credentials");
+        }
+      } else {
+        res.end("No such user");
+      }
     })
     .catch((err) => {
       console.error("Login error", err);
@@ -49,7 +55,9 @@ router.get("/register", (req, res) => {
 router.post("/register", (req, res) => {
   const { email, password } = req.body;
 
-  const user = new User(email, password);
+  const passwordHash = bcrypt.hashSync(password, 10);
+
+  const user = new User(email, passwordHash);
   user
     .save()
     .then((result) => {

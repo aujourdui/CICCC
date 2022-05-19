@@ -9,12 +9,12 @@ module.exports = class User {
 
   save() {
     const dbo = InitiateDatabase();
+    dbo.collection("users").createIndex({ email: 1 }, { unique: true });
     return dbo.collection("users").insertOne(this);
   }
 
-  validate() {
+  static find(email) {
     const dbo = InitiateDatabase();
-    const isUser = dbo.collection("users").findOne(this);
-    return isUser;
+    return dbo.collection("users").findOne({ email });
   }
 };
