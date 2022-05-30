@@ -7,11 +7,7 @@ const commentsSchema = new Schema({
     ref: "User",
     required: true,
   },
-  comments: {
-    type: SchemaTypes.ObjectId,
-    ref: "Blog",
-    content: String,
-  },
+  content: String,
 });
 
 const Comments = model("Comments", commentsSchema);
